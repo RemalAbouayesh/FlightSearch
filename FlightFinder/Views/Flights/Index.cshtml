@@ -1,0 +1,27 @@
+﻿@model FlightFinder.Models.FlightsSearchModel
+@{
+    ViewBag.Title = "Flights Finder";
+}
+
+<h2>Flights Finder</h2>
+<div>
+    <div>
+        <div> Enter Origin</div>
+        <div> @Html.TextBoxFor(m => m.Origin)</div>
+
+        <div> Enter Destination</div>
+        <div> @Html.TextBoxFor(m => m.Destination)</div>
+    </div>
+    <div>
+        <h3>Results</h3>
+        <div>
+            @if(Model.Flights!=null && Model.Flights.Any())
+            {
+                foreach(var flight in Model.Flights)
+                {
+                    @flight
+                }
+            }
+        </div>
+    </div>
+</div>
